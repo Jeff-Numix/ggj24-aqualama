@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerControl : MonoBehaviour
+public class Player : MonoBehaviour
 {
+    public static Player Instance;
     private CustomInput input = null;
     private Vector2 moveVector = Vector2.zero;
     public float moveSpeed=10f;
-    private Collider2D moveZone;
+
+    [Header("Debug")]
+    public bool inputActive=true;
 
     void Awake()
     {
+        Instance=this;
         input = new CustomInput();
-        moveZone = GameObject.FindWithTag("MoveZone").GetComponent<Collider2D>();
+        
     }
 
     void OnEnable()
@@ -32,14 +36,22 @@ public class PlayerControl : MonoBehaviour
 
     void Update()
     {
-        // Manage horizontal move
-        Vector3 newPosition = transform.position + new Vector3(moveVector.x, 0, 0) * Time.deltaTime * moveSpeed;
-        Vector3 boundPos = new Vector3(newPosition.x, transform.position.y, 0);
-        // Vérifiez si la nouvelle position est à l'intérieur du Collider2D de la zone de déplacement.
-        if (moveZone.bounds.Contains(boundPos))
-        {
-            Debug.Log("New position is inside the move zone");
-            transform.position = newPosition;
+        if(inputActive){
+            // Manage horizontal move
+            Vector3 newPosition = transform.position + new Vector3(moveVector.x, 0, 0) * Time.deltaTime * moveSpeed;
+            Vector3 boundPos = new Vector3(newPosition.x, transform.position.y, 0);
+            // Vérifiez si la nouvelle position est à l'intérieur du Collider2D de la zone de déplacement.
+            Collider2D moveZone = GameManager.Instance.currentMoveZone;
+            if(moveZone!=null){
+                if (moveZone.bounds.Contains(boundPos))
+                {
+                    transform.position = newPosition;
+                }
+            }
+            else {
+                transform.position = newPosition;
+                Debug.Log("No move zone");
+            }
         }
 
         
