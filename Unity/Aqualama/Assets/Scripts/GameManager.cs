@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
 
     private Zone[] zones;
 
+    private bool playerIsDead=false;
+
     void Awake()
     {
         Instance = this;
@@ -36,6 +38,18 @@ public class GameManager : MonoBehaviour
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         currentMoveZone = currentCase.moveZone;
         
+    }
+
+    public void PlayerDie(){
+        playerIsDead=true;
+    }
+
+    void Update(){
+        if(playerIsDead && Input.GetKeyDown(KeyCode.Space)){
+            //Reload scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            playerIsDead=false;
+        }
     }
 
     public void ChangeActiveCase(Case newCase, string exitDirection){
