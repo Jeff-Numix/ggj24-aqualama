@@ -34,7 +34,6 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator ChangeActiveCaseCoroutine(Case newCase, string exitDirection){
-        newCase.OnCaseSetup();
         yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
         currentCase.OnExitCase();
         currentCase = newCase;
@@ -43,6 +42,7 @@ public class GameManager : MonoBehaviour
         SpawnPosition spawnPosition = currentCase.GetSpawnPosition(exitDirection);
         if(spawnPosition != null){
             Player.Instance.transform.position = spawnPosition.transform.position;
+            Player.Instance.lamaLevelScale.localScale = new Vector3(newCase.playerScale, newCase.playerScale, 1);
             SetActiveZone(currentCase);
         }
         else{
@@ -56,6 +56,7 @@ public class GameManager : MonoBehaviour
         StartCoroutine(ChangeActiveCaseInfiniteStairsCoroutine(newCase, exitDirection, target, connectedStairs));
     }
     private IEnumerator ChangeActiveCaseInfiniteStairsCoroutine(Case newCase, string exitDirection, Transform target, TargetStairs connectedStairs){
+        
         Player.Instance.inputActive = false;
         float animDuration = 0.6f;
         float t = 0;
@@ -72,8 +73,10 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         Player.Instance.gameObject.SetActive(false);
+        
 
         yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
+        currentCase.GetComponent<Case01_Escalier>().OnFloorChanged(exitDirection);
         currentCase.OnExitCase();
         Player.Instance.gameObject.SetActive(true);
         //Move back to previous Case immediately

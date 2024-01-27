@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Animator animator;
     public Transform lamaOrientation;
     public ParticleSystem crachatParticles;
+    public Transform lamaLevelScale;
     [Header("Debug")]
     public bool inputActive=true;
 

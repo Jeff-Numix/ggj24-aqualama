@@ -513,6 +513,7 @@ MonoBehaviour:
   onExitCase:
     m_PersistentCalls:
       m_Calls: []
+  playerScale: 0.8
   exits:
   - direction: LEFT
     exitCase: {fileID: 0}

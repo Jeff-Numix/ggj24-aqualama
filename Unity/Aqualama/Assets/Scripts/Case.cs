@@ -5,9 +5,9 @@ using UnityEngine.Events;
 
 public class Case : MonoBehaviour
 {
-    public UnityEvent onCaseSetup;
     public UnityEvent onEnterCase;
     public UnityEvent onExitCase;
+    public float playerScale=1;
 
     public CaseExit[] exits;
     public SpawnPosDirection[] spawnPositions;
@@ -22,11 +22,6 @@ public class Case : MonoBehaviour
         zones = GetComponentsInChildren<Zone>(true);
     }
 
-    public void OnCaseSetup(){
-        if(onCaseSetup != null){
-            onCaseSetup.Invoke();
-        }
-    }
     public void OnEnterCase(){
         if(onEnterCase != null){
             onEnterCase.Invoke();
