@@ -10,6 +10,7 @@ public class TargetStairs : MonoBehaviour
         Down
     }
     public MoveDirection moveDirection = MoveDirection.Up;
+    public TargetStairs connectedStairs;
     private Case parentCase;
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class TargetStairs : MonoBehaviour
             if(Input.GetAxis("Vertical") > 0)
             {
                 Debug.Log("Up");
-                parentCase.ExitCaseInfiniteStairs("UP", transform);
+                parentCase.ExitCaseInfiniteStairs("UP", transform, connectedStairs);
                 gameObject.SetActive(false);
             }
         }
@@ -33,7 +34,7 @@ public class TargetStairs : MonoBehaviour
             if(Input.GetAxis("Vertical") < 0)
             {
                 Debug.Log("Down");
-                parentCase.ExitCaseInfiniteStairs("Down", transform);
+                parentCase.ExitCaseInfiniteStairs("DOWN", transform, connectedStairs);
                 gameObject.SetActive(false);
             }
         }

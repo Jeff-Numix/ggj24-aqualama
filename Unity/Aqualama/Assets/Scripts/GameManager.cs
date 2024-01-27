@@ -48,15 +48,15 @@ public class GameManager : MonoBehaviour
         yield return null;
     }
 
-    public void ChangeActiveCaseInfiniteStairs(Case newCase, string exitDirection, Transform target){
-        StartCoroutine(ChangeActiveCaseInfiniteStairsCoroutine(newCase, exitDirection, target));
+    public void ChangeActiveCaseInfiniteStairs(Case newCase, string exitDirection, Transform target, TargetStairs connectedStairs){
+        StartCoroutine(ChangeActiveCaseInfiniteStairsCoroutine(newCase, exitDirection, target, connectedStairs));
     }
-    private IEnumerator ChangeActiveCaseInfiniteStairsCoroutine(Case newCase, string exitDirection, Transform target){
+    private IEnumerator ChangeActiveCaseInfiniteStairsCoroutine(Case newCase, string exitDirection, Transform target, TargetStairs connectedStairs){
         Player.Instance.inputActive = false;
-        float animDuration = 1f;
+        float animDuration = 0.6f;
         float t = 0;
         Vector3 startPosition = Player.Instance.transform.position;
-        Vector3 endPosition = target.position;
+        Vector3 endPosition = new Vector3(target.position.x, target.position.y, Player.Instance.transform.position.z);
         Vector3 startScale = Player.Instance.transform.localScale;
         Vector3 endScale = target.localScale;
 
@@ -67,6 +67,37 @@ public class GameManager : MonoBehaviour
             Player.Instance.transform.localScale = Vector3.LerpUnclamped(startScale, endScale, progress);
             yield return null;
         }
+        Player.Instance.gameObject.SetActive(false);
+
+        yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
+        Player.Instance.gameObject.SetActive(true);
+        //Move back to previous Case immediately
+        CameraManager.Instance.MoveToCaseImmediate(currentCase);
+        // Player.Instance.transform.position = startSpawnPosition.transform.position;
+        SpawnPosition spawnPosition = currentCase.GetSpawnPosition(exitDirection);
+        Debug.Log("Spawn position " + spawnPosition.name);
+        if(spawnPosition != null){
+
+            startPosition = connectedStairs.transform.position;
+            startScale = connectedStairs.transform.localScale;
+            endPosition = spawnPosition.transform.position;
+            endScale = spawnPosition.transform.localScale;
+            t = 0;
+            while(t < animDuration){
+                t += Time.deltaTime;
+                float progress = t/animDuration;
+                Player.Instance.transform.position = Vector3.LerpUnclamped(startPosition, endPosition, progress);
+                Player.Instance.transform.localScale = Vector3.LerpUnclamped(startScale, endScale, progress);
+                yield return null;
+            }
+            
+            SetActiveZone(currentCase);
+        }
+        else{
+            Debug.LogError("No spawn position for direction " + exitDirection);
+        }
+
+
         yield return null;
         Player.Instance.inputActive = true;
     }
@@ -74,6 +105,7 @@ public class GameManager : MonoBehaviour
     private void SetActiveZone(Case newCase){
         foreach(Zone zone in zones){
             zone.isInZone = false;
+            zone.ForceExitZone();
         }
 
         foreach(Zone zone in newCase.zones){
@@ -81,7 +113,7 @@ public class GameManager : MonoBehaviour
             Vector3 playerPosition = Player.Instance.transform.position;
             Vector3 boundPos = new Vector3(playerPosition.x, playerPosition.y, 0);
             if(zone.collider2D.bounds.Contains(boundPos)){
-                zone.isInZone = true;
+                zone.ForceEnterZone();
             }
         }
         

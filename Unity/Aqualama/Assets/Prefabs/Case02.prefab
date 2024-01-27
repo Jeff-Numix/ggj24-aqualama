@@ -126,6 +126,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  triggerWhenForceEnterZone: 1
+  collider2D: {fileID: 0}
+  isInZone: 0
 --- !u!1 &1108958756757915551
 GameObject:
   m_ObjectHideFlags: 0
@@ -391,6 +394,9 @@ MonoBehaviour:
   onPlayerExitZone:
     m_PersistentCalls:
       m_Calls: []
+  triggerWhenForceEnterZone: 0
+  collider2D: {fileID: 0}
+  isInZone: 0
 --- !u!1 &3649198944691089983
 GameObject:
   m_ObjectHideFlags: 0
@@ -603,6 +609,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  triggerWhenForceEnterZone: 1
+  collider2D: {fileID: 0}
+  isInZone: 0
 --- !u!1 &6087812873974066523
 GameObject:
   m_ObjectHideFlags: 0
@@ -755,6 +764,9 @@ MonoBehaviour:
   onPlayerExitZone:
     m_PersistentCalls:
       m_Calls: []
+  triggerWhenForceEnterZone: 0
+  collider2D: {fileID: 0}
+  isInZone: 0
 --- !u!1 &6590284308528452645
 GameObject:
   m_ObjectHideFlags: 0
@@ -842,6 +854,7 @@ MonoBehaviour:
   - direction: LEFT
     spawnPosition: {fileID: 1405848603678654127}
   moveZone: {fileID: 8529769883041378444}
+  zones: []
 --- !u!1 &6852045086424914359
 GameObject:
   m_ObjectHideFlags: 0

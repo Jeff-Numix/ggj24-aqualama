@@ -27,11 +27,15 @@ public class Case : MonoBehaviour
         }
     }
 
-    public void ExitCaseInfiniteStairs(string exitDirection, Transform target){
+    public void ExitCaseInfiniteStairs(string exitDirection, Transform target, TargetStairs connectedStairs){
         // Debug.Log("Exit case " + exitDirection);
         Case exitCase = GetExitCase(exitDirection);
         if(exitCase != null){
-            GameManager.Instance.ChangeActiveCaseInfiniteStairs(exitCase, exitDirection, target);
+            GameManager.Instance.ChangeActiveCaseInfiniteStairs(exitCase, exitDirection, target, connectedStairs);
+        }
+        else
+        {
+            Debug.LogError("No exit case for direction " + exitDirection);
         }
     }
 

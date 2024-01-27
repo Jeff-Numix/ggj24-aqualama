@@ -8,7 +8,7 @@ public class Zone : MonoBehaviour
     // Create an Event that will be called when the player enters the zone.
     public UnityEvent onPlayerEnterZone = null;
     public UnityEvent onPlayerExitZone = null;
-
+    public bool triggerWhenForceEnterZone=true;
     
 
     [Header("Debug")]
@@ -44,6 +44,22 @@ public class Zone : MonoBehaviour
                     onPlayerExitZone.Invoke();
                 }
             }
+        }
+    }
+
+    public void ForceExitZone(){
+        isInZone = false;
+        if(onPlayerExitZone != null)
+        {
+            onPlayerExitZone.Invoke();
+        }
+    }
+
+    public void ForceEnterZone(){
+        isInZone = true;
+        if(onPlayerEnterZone != null && triggerWhenForceEnterZone)
+        {
+            onPlayerEnterZone.Invoke();
         }
     }
 }
