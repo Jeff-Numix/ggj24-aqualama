@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         Vector3 endPosition = new Vector3(target.position.x, target.position.y, Player.Instance.transform.position.z);
         Vector3 startScale = Player.Instance.transform.localScale;
         Vector3 endScale = target.localScale;
-
+        Player.Instance.PlayStairsAnim();
         while(t < animDuration){
             t += Time.deltaTime;
             float progress = t/animDuration;
@@ -84,6 +84,7 @@ public class GameManager : MonoBehaviour
             endPosition = spawnPosition.transform.position;
             endScale = spawnPosition.transform.localScale;
             t = 0;
+            Player.Instance.PlayStairsAnim();
             while(t < animDuration){
                 t += Time.deltaTime;
                 float progress = t/animDuration;
@@ -97,7 +98,7 @@ public class GameManager : MonoBehaviour
         else{
             Debug.LogError("No spawn position for direction " + exitDirection);
         }
-
+        Player.Instance.GoIdle();
 
         yield return null;
         Player.Instance.inputActive = true;

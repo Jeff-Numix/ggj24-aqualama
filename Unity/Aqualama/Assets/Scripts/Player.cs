@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     public static Player Instance;
     public float moveSpeed=10f;
     public Animator animator;
-
+    public Transform lamaOrientation;
     [Header("Debug")]
     public bool inputActive=true;
 
@@ -43,11 +43,26 @@ public class Player : MonoBehaviour
             else {
                 animator.SetBool("IsWalking", false);
             }
+            if(moveX>0){
+                lamaOrientation.localScale = new Vector3(1, 1, 1);
+            }
+            else if(moveX<0){
+                lamaOrientation.localScale = new Vector3(-1, 1, 1);
+            }
 
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
             animator.SetTrigger("Fall");
         }
+    }
+
+    public void PlayStairsAnim()
+    {
+        animator.SetTrigger("Stairs");
+    }
+    public void GoIdle()
+    {
+        animator.SetTrigger("GoIdle");
     }
 }
