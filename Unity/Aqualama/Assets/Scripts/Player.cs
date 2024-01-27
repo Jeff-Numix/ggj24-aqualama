@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     public void PlayFallAnim()
     {
         animator.SetTrigger("Fall");
-        StartCoroutine(DisableInputsForSomeTimeCoroutine());
+        StartCoroutine(DisableInputsForSomeTimeCoroutine(0.3f,1));
         
     }
 
@@ -80,10 +80,16 @@ public class Player : MonoBehaviour
         animator.SetTrigger("GoIdle");
     }
 
-    private IEnumerator DisableInputsForSomeTimeCoroutine(){
-        yield return new WaitForSeconds(0.3f);
+    public void PlayEcrabouilleAnim()
+    {
+        animator.SetTrigger("Ecrabouille");
+        StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
+    }
+
+    private IEnumerator DisableInputsForSomeTimeCoroutine(float delay, float feuDuration){
+        yield return new WaitForSeconds(delay);
         inputActive=false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(feuDuration);
         inputActive=true;
     }
 }
