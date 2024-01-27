@@ -25,7 +25,7 @@ public class TargetStairs : MonoBehaviour
         {
             if(Input.GetAxis("Vertical") > 0)
             {
-                Debug.Log("Up");
+                // Debug.Log("Up");
                 parentCase.ExitCaseInfiniteStairs("UP", transform, connectedStairs);
                 gameObject.SetActive(false);
             }
@@ -33,7 +33,7 @@ public class TargetStairs : MonoBehaviour
         else{
             if(Input.GetAxis("Vertical") < 0)
             {
-                Debug.Log("Down");
+                // Debug.Log("Down");
                 parentCase.ExitCaseInfiniteStairs("DOWN", transform, connectedStairs);
                 gameObject.SetActive(false);
             }

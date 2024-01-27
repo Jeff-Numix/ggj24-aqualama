@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Player.Instance.transform.position = startSpawnPosition.transform.position;
+        currentCase = startCase;
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         currentMoveZone = currentCase.moveZone;
         
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         // Player.Instance.transform.position = startSpawnPosition.transform.position;
         SpawnPosition spawnPosition = currentCase.GetSpawnPosition(exitDirection);
-        Debug.Log("Spawn position " + spawnPosition.name);
+        // Debug.Log("Spawn position " + spawnPosition.name);
         if(spawnPosition != null){
 
             startPosition = connectedStairs.transform.position;
