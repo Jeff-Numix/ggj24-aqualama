@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float moveSpeed=10f;
     public Animator animator;
     public Transform lamaOrientation;
+    public ParticleSystem crachatParticles;
     [Header("Debug")]
     public bool inputActive=true;
 
@@ -53,13 +54,20 @@ public class Player : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-           PlayFallAnim();
+           PlayCrachatAnim();
         }
+    }
+
+    public void PlayCrachatAnim(){
+        animator.SetTrigger("Crachat");
+        crachatParticles.Play();
     }
 
     public void PlayFallAnim()
     {
         animator.SetTrigger("Fall");
+        StartCoroutine(DisableInputsForSomeTimeCoroutine());
+        
     }
 
     public void PlayStairsAnim()
@@ -69,5 +77,12 @@ public class Player : MonoBehaviour
     public void GoIdle()
     {
         animator.SetTrigger("GoIdle");
+    }
+
+    private IEnumerator DisableInputsForSomeTimeCoroutine(){
+        yield return new WaitForSeconds(0.3f);
+        inputActive=false;
+        yield return new WaitForSeconds(1f);
+        inputActive=true;
     }
 }

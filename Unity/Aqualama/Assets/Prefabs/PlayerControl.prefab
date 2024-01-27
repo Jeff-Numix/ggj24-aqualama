@@ -49,6 +49,7 @@ MonoBehaviour:
   moveSpeed: 10
   animator: {fileID: 1147321428336873225}
   lamaOrientation: {fileID: 3761248208545337842}
+  crachatParticles: {fileID: 1961165994669670628}
   inputActive: 1
 --- !u!1 &3473090998774309801
 GameObject:
@@ -285,6 +286,11 @@ PrefabInstance:
 --- !u!95 &1147321428336873225 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 804138855561966039, guid: 64061a1a4c55a8542978029628b3bc71, type: 3}
+  m_PrefabInstance: {fileID: 343675199644417758}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1961165994669670628 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2302338664483929658, guid: 64061a1a4c55a8542978029628b3bc71, type: 3}
   m_PrefabInstance: {fileID: 343675199644417758}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8008581747408613248 stripped
