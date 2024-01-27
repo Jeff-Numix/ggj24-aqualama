@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator ChangeActiveCaseCoroutine(Case newCase, string exitDirection){
-        
+        newCase.OnCaseSetup();
         yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
         currentCase.OnExitCase();
         currentCase = newCase;

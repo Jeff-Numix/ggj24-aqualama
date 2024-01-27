@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class Case : MonoBehaviour
 {
+    public UnityEvent onCaseSetup;
     public UnityEvent onEnterCase;
     public UnityEvent onExitCase;
 
@@ -21,6 +22,11 @@ public class Case : MonoBehaviour
         zones = GetComponentsInChildren<Zone>(true);
     }
 
+    public void OnCaseSetup(){
+        if(onCaseSetup != null){
+            onCaseSetup.Invoke();
+        }
+    }
     public void OnEnterCase(){
         if(onEnterCase != null){
             onEnterCase.Invoke();
