@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Case : MonoBehaviour
 {
-    
+    public UnityEvent onEnterCase;
+    public UnityEvent onExitCase;
 
     public CaseExit[] exits;
     public SpawnPosDirection[] spawnPositions;
@@ -19,6 +21,16 @@ public class Case : MonoBehaviour
         zones = GetComponentsInChildren<Zone>(true);
     }
 
+    public void OnEnterCase(){
+        if(onEnterCase != null){
+            onEnterCase.Invoke();
+        }
+    }
+    public void OnExitCase(){
+        if(onExitCase != null){
+            onExitCase.Invoke();
+        }
+    }
     public void ExitCase(string exitDirection){
         // Debug.Log("Exit case " + exitDirection);
         Case exitCase = GetExitCase(exitDirection);

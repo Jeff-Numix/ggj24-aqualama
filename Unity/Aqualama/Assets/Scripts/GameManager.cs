@@ -34,9 +34,12 @@ public class GameManager : MonoBehaviour
     }
 
     private IEnumerator ChangeActiveCaseCoroutine(Case newCase, string exitDirection){
+        
+        yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
+        currentCase.OnExitCase();
         currentCase = newCase;
-        yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(currentCase));
 
+        newCase.OnEnterCase();
         SpawnPosition spawnPosition = currentCase.GetSpawnPosition(exitDirection);
         if(spawnPosition != null){
             Player.Instance.transform.position = spawnPosition.transform.position;
@@ -71,6 +74,7 @@ public class GameManager : MonoBehaviour
         Player.Instance.gameObject.SetActive(false);
 
         yield return StartCoroutine(CameraManager.Instance.MovetoCaseCoroutine(newCase));
+        currentCase.OnExitCase();
         Player.Instance.gameObject.SetActive(true);
         //Move back to previous Case immediately
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
