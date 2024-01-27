@@ -66,18 +66,23 @@ public class GameManager : MonoBehaviour
         StartCoroutine(Fader.Instance.FadeToDeadCoroutine());
         spaceBarFeedback.SetActive(true);
     }
-    IEnumerator ReloadSceneCoroutine(){
+    IEnumerator ReloadCurrentCaseCoroutine(){
 
         spaceBarFeedback.SetActive(false);
         yield return Fader.Instance.FadeToBlackCoroutine();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        currentCase.ResetCase();
+        Player.Instance.transform.position = currentCase.GetSpawnPosition("RIGHT").transform.position;
+        Player.Instance.PlayIdle();
+        playerIsDead=false;
+
         yield return Fader.Instance.FadeToWhiteCoroutine();
-        
+        Player.Instance.inputActive = true;
+        mainMusic.FadeIn();
     }
     void Update(){
-        if(playerIsDead && Input.GetKeyDown(KeyCode.Space)){
+        if(spaceBarFeedback.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Space)){
             //Reload scene
-            StartCoroutine(ReloadSceneCoroutine());
+            StartCoroutine(ReloadCurrentCaseCoroutine());
 
         }
     }

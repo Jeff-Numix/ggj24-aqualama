@@ -1107,8 +1107,8 @@ MonoBehaviour:
   startCase: {fileID: 2229251679907840810}
   startSpawnPosition: {fileID: 19536441}
   useDebugCase: 1
-  debugStartCase: {fileID: 4942935509786186043}
-  debugStartSpawnPosition: {fileID: 1774355807}
+  debugStartCase: {fileID: 8188357806895393818}
+  debugStartSpawnPosition: {fileID: 1742684870}
   spaceBarFeedback: {fileID: 212177278}
   mainMusic: {fileID: 961231110}
   discoMusic: {fileID: 1812177382}
@@ -1166,10 +1166,10 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.16, y: 3.64}
   m_EdgeRadius: 0
---- !u!114 &1774355807 stripped
+--- !u!114 &1742684870 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2560077721277447003, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
-  m_PrefabInstance: {fileID: 3882199672854466248}
+  m_CorrespondingSourceObject: {fileID: 1355688016103017626, guid: 5b12db32a437e47469f4eef84835272b, type: 3}
+  m_PrefabInstance: {fileID: 6072490524424904808}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -2330,6 +2330,9 @@ MonoBehaviour:
   onExitCase:
     m_PersistentCalls:
       m_Calls: []
+  onResetCase:
+    m_PersistentCalls:
+      m_Calls: []
   playerScale: 1
   exits:
   - direction: RIGHT
@@ -2357,6 +2360,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   onExitCase:
+    m_PersistentCalls:
+      m_Calls: []
+  onResetCase:
     m_PersistentCalls:
       m_Calls: []
   playerScale: 1

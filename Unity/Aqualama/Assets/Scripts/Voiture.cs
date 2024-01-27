@@ -11,4 +11,8 @@ public class Voiture : MonoBehaviour
         animator.SetTrigger("Crash");
         audioSourceCrash.Play();
     }
+
+    public void Reset(){
+        animator.SetTrigger("Default");
+    }
 }

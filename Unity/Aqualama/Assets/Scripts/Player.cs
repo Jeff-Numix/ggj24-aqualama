@@ -69,6 +69,11 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void PlayIdle(){
+        animator.SetBool("IsWalking", false);
+        animator.SetTrigger("GoIdle");
+    }
+
     public void PlayCrachatAnim(){
         animator.SetTrigger("Crachat");
         crachatParticles.Play();

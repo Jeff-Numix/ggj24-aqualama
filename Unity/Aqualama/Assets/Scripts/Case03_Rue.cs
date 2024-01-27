@@ -8,8 +8,9 @@ public class Case03_Rue : MonoBehaviour
     public Sprite spriteFeuRouge;
     public SpriteRenderer feuSpriteRenderer;
     public Clim clim;
-    public Transform climParent;
+
     public Voiture voiture;
+    public float voitreCrashDelay=0.25f;
    
 
 
@@ -51,13 +52,14 @@ public class Case03_Rue : MonoBehaviour
     }
 
     IEnumerator PlayDeadVoitureCoroutine(){
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(voitreCrashDelay);
         Player.Instance.PlayDeadVoiture();
         GameManager.Instance.PlayerDie();
     }
 
-    public void ResetClim(){
+    public void ResetCase(){
         clim.Reset();
+        voiture.Reset();
     }
 
 }

@@ -17,6 +17,7 @@ public class Clim : MonoBehaviour
     public AnimationCurve bloodCurve;
     [Header("Debug")]
     public bool hasFallen=false;
+    private bool hasCollided=false;
 
     void Start()
     {
@@ -26,25 +27,31 @@ public class Clim : MonoBehaviour
 
     public void Fall(){
         clim.simulated = true;
+        StopAllCoroutines();
         StartCoroutine(WaitUntilDisablePhysicsCoroutine());
     }
-    void Update(){
-        if(hasFallen=false && clim.transform.localPosition.y < fallYPosition){
-            
-            hasFallen=true;
+    void OnCollisionEnter2D(){
+        if(!hasCollided){
+            hasCollided=true;
+            StartCoroutine(WaitUntilDisablePhysicsCoroutine());
             if(!climFallAudioSource.isPlaying){
                 climFallAudioSource.Play();
             }
         }
     }
     public void Reset(){
+        StopAllCoroutines();
         clim.simulated = false;
         clim.transform.position = climStartPosition;
+        bloodTransform.transform.localScale = new Vector3(1, 1, 1);
         hasFallen=false;
+        hasCollided=false;
     }
 
     void OnTriggerEnter2D(Collider2D other){
         if(other.gameObject.tag == "Player" && !hasFallen){
+            
+            bloodTransform.transform.localScale = new Vector3(1, 1, 1);
             Player.Instance.PlayEcrabouilleAnim();
             GameManager.Instance.PlayerDie();
             if(!climFallAudioSource.isPlaying){

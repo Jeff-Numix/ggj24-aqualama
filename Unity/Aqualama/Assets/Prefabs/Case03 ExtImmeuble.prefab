@@ -1040,7 +1040,22 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3746947765509150752}
         m_TargetAssemblyTypeName: Case03_Rue, Assembly-CSharp
-        m_MethodName: ResetClim
+        m_MethodName: ResetCase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onResetCase:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3746947765509150752}
+        m_TargetAssemblyTypeName: Case03_Rue, Assembly-CSharp
+        m_MethodName: ResetCase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1077,7 +1092,6 @@ MonoBehaviour:
   spriteFeuRouge: {fileID: 21300000, guid: fe6ea7e50cc5984409847d5874b19eac, type: 3}
   feuSpriteRenderer: {fileID: 5023972275162679812}
   clim: {fileID: 3808150974136385567}
-  climParent: {fileID: 0}
   voiture: {fileID: 216773791037203742}
   feuDurationMin: 3
   feuDurationMax: 5

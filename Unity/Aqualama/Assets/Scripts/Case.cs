@@ -7,6 +7,8 @@ public class Case : MonoBehaviour
 {
     public UnityEvent onEnterCase;
     public UnityEvent onExitCase;
+    public UnityEvent onResetCase;
+
     public float playerScale=1;
 
     public CaseExit[] exits;
@@ -20,6 +22,12 @@ public class Case : MonoBehaviour
     void Start()
     {
         zones = GetComponentsInChildren<Zone>(true);
+    }
+
+    public void ResetCase(){
+        if(onResetCase != null){
+            onResetCase.Invoke();
+        }
     }
 
     public void OnEnterCase(){
