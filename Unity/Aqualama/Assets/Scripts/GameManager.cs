@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public Case startCase;
     public SpawnPosition startSpawnPosition;
 
+    public bool useDebugCase;
+    public Case debugStartCase;
+    public SpawnPosition debugStartSpawnPosition;
+
     [Header("Debug")]
     public Case currentCase;
     public Collider2D currentMoveZone;
@@ -22,8 +26,13 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        Player.Instance.transform.position = startSpawnPosition.transform.position;
-        currentCase = startCase;
+        Case myCase = useDebugCase ? debugStartCase : startCase;
+        SpawnPosition mySpawnPosition = useDebugCase ? debugStartSpawnPosition : startSpawnPosition;
+
+        Player.Instance.transform.position = mySpawnPosition.transform.position;
+        Player.Instance.lamaLevelScale.localScale = new Vector3(myCase.playerScale, myCase.playerScale, 1);
+        currentCase = myCase;
+
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         currentMoveZone = currentCase.moveZone;
         
