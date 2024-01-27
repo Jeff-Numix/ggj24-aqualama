@@ -14,9 +14,11 @@ public class Player : MonoBehaviour
     [Header("Equipment")]
     public GameObject bonnetBain;
     public GameObject bouee;
+    public GameObject serviette;
     [Header("Sound")]
     public AudioSource audioSource_DieProut;
     public AudioSource audioSource_Glissade;
+
     [Header("Debug")]
     public bool inputActive=true;
 
@@ -27,6 +29,7 @@ public class Player : MonoBehaviour
         Instance=this;
         bonnetBain.SetActive(false);
         bouee.SetActive(false);
+        serviette.SetActive(false);
 
     }
 
@@ -130,11 +133,15 @@ public class Player : MonoBehaviour
             case EquipmentType.Bouee:
                 bouee.SetActive(true);
                 break;
+            case EquipmentType.Serviette:
+                serviette.SetActive(true);
+                break;
         }
     }
 }
 
 public enum EquipmentType{
     BonnetBain,
-    Bouee
+    Bouee,
+    Serviette
 }
