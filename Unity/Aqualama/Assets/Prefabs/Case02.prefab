@@ -518,10 +518,10 @@ MonoBehaviour:
     exitCase: {fileID: 0}
   spawnPositions:
   - direction: RIGHT
-    spawnPosition: {fileID: 0}
+    spawnPosition: {fileID: 1355688016103017626}
   - direction: LEFT
-    spawnPosition: {fileID: 0}
-  moveZone: {fileID: 0}
+    spawnPosition: {fileID: 2141550060320159510}
+  moveZone: {fileID: 3617061556388445595}
   zones: []
 --- !u!1 &6931922284258688135
 GameObject:
