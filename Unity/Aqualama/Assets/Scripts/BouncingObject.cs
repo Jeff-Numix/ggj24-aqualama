@@ -1,10 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class Velo : MonoBehaviour
+public class BouncingObject : MonoBehaviour
 {
-    public float forceAmount = 1000;
+    public UnityEvent onTriggerEnter;
+
+    public float forceAmountX = 800;
+    public float forceAmountY = 800;
     public float torque= 1000;
     public float disableTriggerDuration=2f;
     private bool triggerDisabled = false;
@@ -17,7 +21,7 @@ public class Velo : MonoBehaviour
         startRotation = transform.rotation;
     }
 
-    public void ResetVelo(){
+    public void Reset(){
         transform.position = startPosition;
         transform.rotation = startRotation;
         Rigidbody2D rb = gameObject.GetComponent<Rigidbody2D>();
@@ -34,10 +38,14 @@ public class Velo : MonoBehaviour
 
                 int direction = -(int)Mathf.Sign(other.transform.position.x - transform.position.x);
 
-                Vector2 force = forceAmount * new Vector2(1 * Random.Range(0.5f,1) * direction, 1 * Random.Range(0.5f,1));
+                Vector2 force =  new Vector2(forceAmountX * Random.Range(0.5f,1) * direction, forceAmountY * Random.Range(0.5f,1));
                 rb.AddForce(force);
                 rb.angularVelocity = torque * Random.value;
-                DisableTrigger();
+                StartCoroutine (DisableTrigger());
+
+                if(onTriggerEnter!=null){
+                    onTriggerEnter.Invoke();
+                }
             }
         }
     }

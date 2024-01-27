@@ -53,8 +53,13 @@ public class Player : MonoBehaviour
         }
 
         if(Input.GetKeyDown(KeyCode.Space)){
-            animator.SetTrigger("Fall");
+           PlayFallAnim();
         }
+    }
+
+    public void PlayFallAnim()
+    {
+        animator.SetTrigger("Fall");
     }
 
     public void PlayStairsAnim()

@@ -1722,7 +1722,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ba73c65c26d54645b5c9921cd67b2fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceAmount: 800
+  onTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  forceAmountX: 800
+  forceAmountY: 800
   torque: 1000
   disableTriggerDuration: 2
 --- !u!1 &7747410550673563471
@@ -2265,8 +2269,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8474097658238840352}
-        m_TargetAssemblyTypeName: Velo, Assembly-CSharp
-        m_MethodName: ResetVelo
+        m_TargetAssemblyTypeName: BouncingObject, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2280,8 +2284,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8474097658238840352}
-        m_TargetAssemblyTypeName: Velo, Assembly-CSharp
-        m_MethodName: ResetVelo
+        m_TargetAssemblyTypeName: BouncingObject, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

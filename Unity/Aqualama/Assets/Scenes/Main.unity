@@ -519,6 +519,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3087920536860894239, guid: 743a368a539785e418d89431cebf1189, type: 3}
   m_PrefabInstance: {fileID: 5380996758425432744}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1001422665 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4337033185248514251, guid: 743a368a539785e418d89431cebf1189, type: 3}
+  m_PrefabInstance: {fileID: 5380996758425432744}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10c36cb467e4ea48b62a552e6afde5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1198787800 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7324976934615511061, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
@@ -1020,6 +1031,34 @@ PrefabInstance:
       propertyPath: exits.Array.data[3].exitCase
       value: 
       objectReference: {fileID: 7882471282247822422}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1001422665}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFallAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8474097658238840352, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 9222214254888580594, guid: a7b6fa8b6ecfbf7439942fb5e658b57a, type: 3}
       propertyPath: m_Name
       value: Case01 InfiniStairs
@@ -1171,6 +1210,34 @@ PrefabInstance:
     - target: {fileID: 2241566151516340473, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1001422665}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFallAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Player, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6516219893729514596, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
+      propertyPath: onTriggerEnter.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7882471281684939839, guid: 208134783331f24469a1f19cc16eddc3, type: 3}
       propertyPath: exits.Array.data[0].exitCase
@@ -1408,6 +1475,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf7943d99ba0c4fa59d411ee1952bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnterCase:
+    m_PersistentCalls:
+      m_Calls: []
+  onExitCase:
+    m_PersistentCalls:
+      m_Calls: []
   exits:
   - direction: RIGHT
     exitCase: {fileID: 1198787800}
@@ -1430,6 +1503,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dadf7943d99ba0c4fa59d411ee1952bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onEnterCase:
+    m_PersistentCalls:
+      m_Calls: []
+  onExitCase:
+    m_PersistentCalls:
+      m_Calls: []
   exits: []
   spawnPositions: []
   moveZone: {fileID: 0}
