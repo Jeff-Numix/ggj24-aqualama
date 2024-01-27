@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public bool useDebugCase;
     public Case debugStartCase;
     public SpawnPosition debugStartSpawnPosition;
+    public GameObject spaceBarFeedback;
 
     [Header("Debug")]
     public Case currentCase;
@@ -18,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     private Zone[] zones;
 
-    private bool playerIsDead=false;
+    public bool playerIsDead=false;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        spaceBarFeedback.SetActive(false);
         Case myCase = useDebugCase ? debugStartCase : startCase;
         SpawnPosition mySpawnPosition = useDebugCase ? debugStartSpawnPosition : startSpawnPosition;
 
@@ -37,18 +39,36 @@ public class GameManager : MonoBehaviour
 
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         currentMoveZone = currentCase.moveZone;
+
+        Fader.Instance.FadeToWhite();
         
     }
 
     public void PlayerDie(){
         playerIsDead=true;
+        
+        StartCoroutine(ShowSpaceBarFeedbackCoroutine());
     }
 
+    IEnumerator ShowSpaceBarFeedbackCoroutine(){
+        spaceBarFeedback.SetActive(false);
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(Fader.Instance.FadeToDeadCoroutine());
+        spaceBarFeedback.SetActive(true);
+    }
+    IEnumerator ReloadSceneCoroutine(){
+
+        spaceBarFeedback.SetActive(false);
+        yield return Fader.Instance.FadeToBlackCoroutine();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        yield return Fader.Instance.FadeToWhiteCoroutine();
+        
+    }
     void Update(){
         if(playerIsDead && Input.GetKeyDown(KeyCode.Space)){
             //Reload scene
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
-            playerIsDead=false;
+            StartCoroutine(ReloadSceneCoroutine());
+
         }
     }
 

@@ -11,12 +11,17 @@ public class Player : MonoBehaviour
     public Transform lamaOrientation;
     public ParticleSystem crachatParticles;
     public Transform lamaLevelScale;
+    [Header("Equipment")]
+    public GameObject bonnetBain;
+    public GameObject bouee;
     [Header("Debug")]
     public bool inputActive=true;
 
     void Awake()
     {
         Instance=this;
+        bonnetBain.SetActive(false);
+        bouee.SetActive(false);
 
     }
 
@@ -54,7 +59,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Space)){
+        if(Input.GetKeyDown(KeyCode.Space) && !GameManager.Instance.playerIsDead){
            PlayCrachatAnim();
         }
     }
@@ -92,4 +97,20 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(feuDuration);
         inputActive=true;
     }
+
+    public void EquipObject(EquipmentType equipmentType){
+        switch(equipmentType){
+            case EquipmentType.BonnetBain:
+                bonnetBain.SetActive(true);
+                break;
+            case EquipmentType.Bouee:
+                bouee.SetActive(true);
+                break;
+        }
+    }
+}
+
+public enum EquipmentType{
+    BonnetBain,
+    Bouee
 }
