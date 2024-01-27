@@ -1207,7 +1207,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 80
   m_Sprite: {fileID: 21300000, guid: d4064495e92c1474d9ccf7a2aee9575c, type: 3}
-  m_Color: {r: 0.990566, g: 0.86252457, b: 0.39716092, a: 0.5882353}
+  m_Color: {r: 0.990566, g: 0.86252457, b: 0.39716092, a: 0.84313726}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2783,6 +2783,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 7428629687431696686}
+        m_TargetAssemblyTypeName: Case01_Escalier, Assembly-CSharp
+        m_MethodName: OnEnterCase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExitCase:
     m_PersistentCalls:
       m_Calls:
@@ -2836,6 +2848,7 @@ MonoBehaviour:
   - {fileID: 2716453557865795215}
   - {fileID: 2589446932550630788}
   zonePorte: {fileID: 5619734488921465586}
+  animatorEclairage: {fileID: 9023976517109341918}
   numStepsToUnlockDoor: 3
   stepSequence: []
   stepCount: 0

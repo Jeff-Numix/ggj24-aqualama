@@ -8,7 +8,7 @@ public class Case01_Escalier : MonoBehaviour
 
     public GameObject[] planches;
     public GameObject zonePorte;
-    
+    public Animator animatorEclairage;
 
     public int numStepsToUnlockDoor=3;
     [Header("Debug")]
@@ -28,8 +28,24 @@ public class Case01_Escalier : MonoBehaviour
         }
     }
 
+    public void OnEnterCase(){
+        if(GameManager.Instance.useDebugCase){
+            zonePorte.SetActive(true);
+            for (int i = 0; i < planches.Length; i++)
+            {
+                planches[i].gameObject.SetActive(false);
+            }
+            return;
+        }
+        if(stepCount>=numStepsToUnlockDoor){
+            animatorEclairage.SetTrigger("Disco");
+            GameManager.Instance.mainMusic.FadeOut();
+            GameManager.Instance.discoMusic.FadeIn();
+        }
+    }
+
     public void OnFloorChanged(string direction){
-        
+
         if(stepCount>=numStepsToUnlockDoor){
             return;
         }
@@ -54,9 +70,13 @@ public class Case01_Escalier : MonoBehaviour
         
         if(stepCount>=numStepsToUnlockDoor){
             zonePorte.SetActive(true);
+            animatorEclairage.SetTrigger("Disco");
+            GameManager.Instance.mainMusic.FadeOut();
+            GameManager.Instance.discoMusic.FadeIn();
         }
         else {
             zonePorte.SetActive(false);
+            animatorEclairage.SetTrigger("Default");
         }
 
         

@@ -14,8 +14,13 @@ public class Player : MonoBehaviour
     [Header("Equipment")]
     public GameObject bonnetBain;
     public GameObject bouee;
+    [Header("Sound")]
+    public AudioSource audioSource_DieProut;
+    public AudioSource audioSource_Glissade;
     [Header("Debug")]
     public bool inputActive=true;
+
+
 
     void Awake()
     {
@@ -73,6 +78,7 @@ public class Player : MonoBehaviour
     {
         animator.SetTrigger("Fall");
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0.3f,1));
+        audioSource_Glissade.Play();
         
     }
 
@@ -88,6 +94,19 @@ public class Player : MonoBehaviour
     public void PlayEcrabouilleAnim()
     {
         animator.SetTrigger("Ecrabouille");
+        StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
+    }
+    
+    public void PlayDeadVoiture()
+    {
+        animator.SetTrigger("DeadVoiture");
+        StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
+    }
+
+    public void PlayDieProut()
+    {
+        animator.SetTrigger("DieProut");
+        audioSource_DieProut.Play();
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
     }
 

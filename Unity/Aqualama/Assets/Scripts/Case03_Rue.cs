@@ -8,6 +8,10 @@ public class Case03_Rue : MonoBehaviour
     public Sprite spriteFeuRouge;
     public SpriteRenderer feuSpriteRenderer;
     public Clim clim;
+    public Transform climParent;
+    public Voiture voiture;
+   
+
 
 
     public float feuDurationMin=2f;
@@ -24,6 +28,10 @@ public class Case03_Rue : MonoBehaviour
        
     }
 
+    public void OnEnterCase(){
+        clim.Reset();
+    }
+
     private IEnumerator feuCoroutine(){
         while(true){
             feuDuration = Random.Range(feuDurationMin,feuDurationMax);
@@ -36,6 +44,16 @@ public class Case03_Rue : MonoBehaviour
         if(isFeuVert){
             clim.Fall();
         }
+        else {
+            voiture.GoCrash();
+            StartCoroutine(PlayDeadVoitureCoroutine());
+        }
+    }
+
+    IEnumerator PlayDeadVoitureCoroutine(){
+        yield return new WaitForSeconds(0.2f);
+        Player.Instance.PlayDeadVoiture();
+        GameManager.Instance.PlayerDie();
     }
 
     public void ResetClim(){

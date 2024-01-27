@@ -12,6 +12,11 @@ public class GameManager : MonoBehaviour
     public Case debugStartCase;
     public SpawnPosition debugStartSpawnPosition;
     public GameObject spaceBarFeedback;
+    [Header("Musics")]
+    public Music mainMusic;
+    public Music discoMusic;
+    [Header("Sound")]
+    public AudioSource gameOverAudioSource;
 
     [Header("Debug")]
     public Case currentCase;
@@ -36,7 +41,7 @@ public class GameManager : MonoBehaviour
         Player.Instance.transform.position = mySpawnPosition.transform.position;
         Player.Instance.lamaLevelScale.localScale = new Vector3(myCase.playerScale, myCase.playerScale, 1);
         currentCase = myCase;
-
+        currentCase.OnEnterCase();
         CameraManager.Instance.MoveToCaseImmediate(currentCase);
         currentMoveZone = currentCase.moveZone;
 
@@ -47,12 +52,17 @@ public class GameManager : MonoBehaviour
     public void PlayerDie(){
         playerIsDead=true;
         
+       
         StartCoroutine(ShowSpaceBarFeedbackCoroutine());
     }
+    
 
     IEnumerator ShowSpaceBarFeedbackCoroutine(){
         spaceBarFeedback.SetActive(false);
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(2f);
+        mainMusic.FadeOut();
+        gameOverAudioSource.Play();
+        yield return new WaitForSeconds(2f);
         StartCoroutine(Fader.Instance.FadeToDeadCoroutine());
         spaceBarFeedback.SetActive(true);
     }
