@@ -12,13 +12,13 @@ public class SpriteAnimator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(StartAnimation());
+        StartCoroutine(StartAnimationCoroutine());
     }
     void OnEnable(){
-        StartCoroutine(StartAnimation());
+        StartCoroutine(StartAnimationCoroutine());
     }
-    
-    IEnumerator StartAnimation(){
+
+    IEnumerator StartAnimationCoroutine(){
         int i=0;
         while(true){
             spriteRenderer.sprite = sprites[i];
