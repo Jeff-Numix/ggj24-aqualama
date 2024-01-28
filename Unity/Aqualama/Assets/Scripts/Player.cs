@@ -118,6 +118,12 @@ public class Player : MonoBehaviour
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
     }
 
+    public void PlayJumpPiscine(){
+        animator.SetTrigger("Fall");
+        inputActive=false;
+        animator.SetBool("IsWalking", false);
+    }
+
     private IEnumerator DisableInputsForSomeTimeCoroutine(float delay, float feuDuration){
         yield return new WaitForSeconds(delay);
         inputActive=false;
