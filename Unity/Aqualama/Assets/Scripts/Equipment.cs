@@ -5,7 +5,7 @@ using UnityEngine;
 public class Equipment : MonoBehaviour
 {
     public EquipmentType equipmentType;
-
+    public AudioPlayer audioPlayer;
     [Header("Debug")]
     new public Collider2D collider2D;
     public bool isInZone=false;
@@ -27,6 +27,11 @@ public class Equipment : MonoBehaviour
                 isInZone = true;
                 Player.Instance.EquipObject(equipmentType);
                 gameObject.SetActive(false);
+                GameManager.Instance.PlayCollectItemSound();
+                if(audioPlayer != null)
+                {
+                    audioPlayer.Play();
+                }
 
             }
             else if(isInZone && !collider2D.bounds.Contains(boundPos))

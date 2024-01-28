@@ -144,5 +144,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equipmentType: 1
+  audioPlayer: {fileID: 0}
   collider2D: {fileID: 0}
   isInZone: 0

@@ -9,6 +9,8 @@ public class AudioPlayer : MonoBehaviour
     public AudioClip[] audioClips;
     private AudioSource audioSource;
 
+    public bool IsPlaying{ get { return audioSource.isPlaying; }}
+
     void Awake()
     {
         audioSource = GetComponent<AudioSource>();
