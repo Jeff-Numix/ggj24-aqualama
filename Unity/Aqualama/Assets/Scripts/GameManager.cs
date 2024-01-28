@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Case debugStartCase;
     public SpawnPosition debugStartSpawnPosition;
     public GameObject spaceBarFeedback;
+    public Animator endGameUI;
     [Header("Musics")]
     public Music mainMusic;
     public Music discoMusic;
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        endGameUI.gameObject.SetActive(false);
         spaceBarFeedback.SetActive(false);
         Case myCase = useDebugCase ? debugStartCase : startCase;
         SpawnPosition mySpawnPosition = useDebugCase ? debugStartSpawnPosition : startSpawnPosition;
@@ -57,6 +59,8 @@ public class GameManager : MonoBehaviour
        
         StartCoroutine(ShowSpaceBarFeedbackCoroutine());
     }
+
+
     
 
     IEnumerator ShowSpaceBarFeedbackCoroutine(){
@@ -85,13 +89,22 @@ public class GameManager : MonoBehaviour
         if(spaceBarFeedback.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Space)){
             //Reload scene
             StartCoroutine(ReloadCurrentCaseCoroutine());
-
+        }
+        if(endGameUI.gameObject.activeInHierarchy && Input.GetKeyDown(KeyCode.Space)){
+            //Reload scene
+            StartCoroutine(LoadMainScreenCoroutine());
         }
 
         if(Input.GetKeyDown(KeyCode.Escape)){
-            StartCoroutine(LoadMainScreenCoroutine());
+            ShowEndGameUI();
         }
     }
+
+    public void ShowEndGameUI(){
+        endGameUI.gameObject.SetActive(true);
+        endGameUI.SetTrigger("Intro");
+    }
+
 
     IEnumerator LoadMainScreenCoroutine(){
         yield return Fader.Instance.FadeToBlackCoroutine();
