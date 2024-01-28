@@ -15,6 +15,12 @@ public class Case01_Escalier : MonoBehaviour
     public AudioPlayer knockAudioPlayer;
     public AudioPlayer mamieAudioPlayer;
     public AudioPlayer woodplankFallAudioPlayer;
+
+    public SpriteRenderer backgroundSpriteRenderer;
+    public Sprite backgroundSpriteDefault;
+    public Sprite backgroundSpriteDisco;
+
+
     [Header("Debug")]
     public string[] stepSequence;
     public int stepCount=0;
@@ -42,8 +48,10 @@ public class Case01_Escalier : MonoBehaviour
             }
             return;
         }
+        backgroundSpriteRenderer.sprite = backgroundSpriteDefault;
         if(stepCount>=numStepsToUnlockDoor){
             animatorEclairage.SetTrigger("Disco");
+            backgroundSpriteRenderer.sprite = backgroundSpriteDisco;
             GameManager.Instance.mainMusic.FadeOut();
             GameManager.Instance.discoMusic.FadeIn();
         }
@@ -82,6 +90,7 @@ public class Case01_Escalier : MonoBehaviour
             zonePorte.SetActive(true);
             zoneKnockDoor.SetActive(false);
             animatorEclairage.SetTrigger("Disco");
+            backgroundSpriteRenderer.sprite = backgroundSpriteDisco;
             GameManager.Instance.mainMusic.FadeOut();
             GameManager.Instance.discoMusic.FadeIn();
         }
@@ -89,6 +98,7 @@ public class Case01_Escalier : MonoBehaviour
             zonePorte.SetActive(false);
             zoneKnockDoor.SetActive(true);
             animatorEclairage.SetTrigger("Default");
+            backgroundSpriteRenderer.sprite = backgroundSpriteDefault;
         }
 
         

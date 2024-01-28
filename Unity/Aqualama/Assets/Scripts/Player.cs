@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Space) && !GameManager.Instance.playerIsDead){
+        if(Input.GetKeyDown(KeyCode.Space) && !GameManager.Instance.playerIsDead && !GameManager.Instance.gameIsEnded){
            PlayCrachatAnim();
         }
     }
@@ -133,7 +133,7 @@ public class Player : MonoBehaviour
     }
 
     public void PlayJumpPiscine(){
-        animator.SetTrigger("Fall");
+        animator.SetTrigger("JumpPiscine");
         inputActive=false;
         animator.SetBool("IsWalking", false);
     }

@@ -3741,6 +3741,9 @@ MonoBehaviour:
   knockAudioPlayer: {fileID: 6133426686846189186}
   mamieAudioPlayer: {fileID: 689669747681889539}
   woodplankFallAudioPlayer: {fileID: 4600903940571735237}
+  backgroundSpriteRenderer: {fileID: 1785099711479077133}
+  backgroundSpriteDefault: {fileID: 21300000, guid: 0cffa4ae1d283ae4d8838bd7ac90f176, type: 3}
+  backgroundSpriteDisco: {fileID: 21300000, guid: 270f7935e5d9a094a9c63e7fdd560744, type: 3}
   stepSequence: []
   stepCount: 0
 --- !u!1001 &5418277127049442425

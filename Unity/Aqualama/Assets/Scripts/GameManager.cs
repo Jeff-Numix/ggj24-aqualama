@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     private Zone[] zones;
 
     public bool playerIsDead=false;
+    public bool gameIsEnded=false;
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        gameIsEnded=false;
         endGameUI.gameObject.SetActive(false);
         spaceBarFeedback.SetActive(false);
         Case myCase = useDebugCase ? debugStartCase : startCase;
@@ -95,12 +97,14 @@ public class GameManager : MonoBehaviour
             StartCoroutine(LoadMainScreenCoroutine());
         }
 
-        if(Input.GetKeyDown(KeyCode.Escape)){
+        if(!playerIsDead && Input.GetKeyDown(KeyCode.Escape) && !endGameUI.gameObject.activeInHierarchy){
             ShowEndGameUI();
         }
     }
 
     public void ShowEndGameUI(){
+        gameIsEnded=true;
+        Player.Instance.inputActive = false;
         endGameUI.gameObject.SetActive(true);
         endGameUI.SetTrigger("Intro");
     }
