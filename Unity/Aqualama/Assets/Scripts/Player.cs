@@ -30,7 +30,11 @@ public class Player : MonoBehaviour
         bonnetBain.SetActive(false);
         bouee.SetActive(false);
         serviette.SetActive(false);
+        
+    }
 
+    void Start(){
+        GameManager.Instance.stepsAudioSource.volume=0;
     }
 
     void Update()
@@ -54,9 +58,11 @@ public class Player : MonoBehaviour
             if(newPosition!=transform.position){
                 transform.position = newPosition;
                 animator.SetBool("IsWalking", true);
+                GameManager.Instance.stepsAudioSource.volume=1;
             }
             else {
                 animator.SetBool("IsWalking", false);
+                GameManager.Instance.stepsAudioSource.volume=0;
             }
             if(moveX>0){
                 lamaOrientation.localScale = new Vector3(1, 1, 1);
@@ -75,6 +81,7 @@ public class Player : MonoBehaviour
     public void PlayIdle(){
         animator.SetBool("IsWalking", false);
         animator.SetTrigger("GoIdle");
+        GameManager.Instance.stepsAudioSource.volume=0;
     }
 
     public void PlayCrachatAnim(){
@@ -85,6 +92,8 @@ public class Player : MonoBehaviour
     public void PlayFallAnim()
     {
         animator.SetTrigger("Fall");
+        animator.SetBool("IsWalking", false);
+        GameManager.Instance.stepsAudioSource.volume=0;
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0.3f,1));
         audioSource_Glissade.Play();
         

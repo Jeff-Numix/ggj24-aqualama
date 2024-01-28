@@ -6,10 +6,11 @@ public class Case04_Parc : MonoBehaviour
 {
     public Animator piafAnimator;
     public Zone piafZone;
-
+    public AudioSource piafAudioSource;
     public void OnPlayerEnterPiafZone(){
         piafAnimator.SetTrigger("Fly");
         piafZone.gameObject.SetActive(false);
+        piafAudioSource.Play();
     }
 
     public void ResetCase(){

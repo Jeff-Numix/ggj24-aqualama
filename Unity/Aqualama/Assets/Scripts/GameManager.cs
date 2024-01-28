@@ -17,7 +17,8 @@ public class GameManager : MonoBehaviour
     public Music discoMusic;
     [Header("Sound")]
     public AudioSource gameOverAudioSource;
-
+    public AudioSource collectItemAudioSource;
+    public AudioSource stepsAudioSource;
     [Header("Debug")]
     public Case currentCase;
     public Collider2D currentMoveZone;
@@ -186,5 +187,8 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public void PlayCollectItemSound(){
+        collectItemAudioSource.Play();
+    }
 
 }
