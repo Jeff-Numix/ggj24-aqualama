@@ -46,8 +46,6 @@ public class PetMamie : MonoBehaviour
         if(isPetActive){
             Player.Instance.PlayDieProut();
             GameManager.Instance.PlayerDie();
-        }else{
-            Debug.Log("OK");
         }
     }
 
