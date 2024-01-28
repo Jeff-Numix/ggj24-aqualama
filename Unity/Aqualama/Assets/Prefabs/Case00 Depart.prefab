@@ -87,6 +87,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2241566151516340473}
   - component: {fileID: 7882471281684939839}
+  - component: {fileID: 655416065884061875}
   m_Layer: 0
   m_Name: Case00 Depart
   m_TagString: Untagged
@@ -140,12 +141,63 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 655416065884061875}
+        m_TargetAssemblyTypeName: Case00_Depart, Assembly-CSharp
+        m_MethodName: ResetCase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onExitCase:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 6516219893729514596}
         m_TargetAssemblyTypeName: BouncingObject, Assembly-CSharp
         m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 655416065884061875}
+        m_TargetAssemblyTypeName: Case00_Depart, Assembly-CSharp
+        m_MethodName: ResetCase
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onResetCase:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6516219893729514596}
+        m_TargetAssemblyTypeName: BouncingObject, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 655416065884061875}
+        m_TargetAssemblyTypeName: Case00_Depart, Assembly-CSharp
+        m_MethodName: ResetCase
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -166,6 +218,19 @@ MonoBehaviour:
     spawnPosition: {fileID: 7007373917306096366}
   moveZone: {fileID: 3038165801648552051}
   zones: []
+--- !u!114 &655416065884061875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1078420364855031025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4899b985f92f04c4bb5bb786fe4a4d81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bananaTransform: {fileID: 5702908406387262590}
 --- !u!1 &1276567524346647385
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,7 +510,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1169831344590311468}
-  - {fileID: 5702908406387262590}
+  - {fileID: 6554920570208321444}
   - {fileID: 5613978386745723098}
   m_Father: {fileID: 2241566151516340473}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -860,12 +925,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7045557409370525989}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.81, y: -3.42, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8901716138889671713}
+  m_Father: {fileID: 6554920570208321444}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2492069752789978802
 SpriteRenderer:
@@ -1044,6 +1109,38 @@ Transform:
   - {fileID: 313495661110042838}
   - {fileID: 9090540986713292197}
   m_Father: {fileID: 2241566151516340473}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &8232003768681479055
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6554920570208321444}
+  m_Layer: 0
+  m_Name: Banana_Parent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6554920570208321444
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8232003768681479055}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.80999947, y: -3.42, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5702908406387262590}
+  m_Father: {fileID: 8901716138889671713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8870595512669760119
 GameObject:
