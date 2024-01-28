@@ -11,19 +11,30 @@ public class LoadScene : MonoBehaviour
     public float splashScreenFadeDuration=2;
     public Fader fader;
     public SpriteRenderer faderSpriteRenderer;
+    public AudioSource startGameAudio;
 
     void Start()
     {
+        fader.gameObject.SetActive(true);
         faderSpriteRenderer.color = new Color(0,0,0,1);
-        StartCoroutine(LoadMainScene());
+        StartCoroutine(LoadIntro());
+
+    }
+    void Update(){
+        if(Input.GetKeyDown(KeyCode.Space)){
+            StartCoroutine(LoadTheScene());
+        }
     }
 
-    IEnumerator LoadMainScene(){
+    IEnumerator LoadIntro(){
         yield return fader.FadeToWhiteCoroutine();
-        yield return new WaitForSeconds(splashScreenDuration);
-        yield return fader.FadeToBlackCoroutine();
-        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 
-        
+    }
+
+    IEnumerator LoadTheScene(){
+        startGameAudio.Play();
+        yield return fader.FadeToBlackCoroutine();
+        yield return new WaitForSeconds(1f);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(1);
     }
 }

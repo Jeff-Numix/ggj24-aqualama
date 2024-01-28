@@ -53,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie(){
         playerIsDead=true;
-        stepsAudioSource.volume=0;
+        
        
         StartCoroutine(ShowSpaceBarFeedbackCoroutine());
     }
@@ -87,7 +87,17 @@ public class GameManager : MonoBehaviour
             StartCoroutine(ReloadCurrentCaseCoroutine());
 
         }
+
+        if(Input.GetKeyDown(KeyCode.Escape)){
+            StartCoroutine(LoadMainScreenCoroutine());
+        }
     }
+
+    IEnumerator LoadMainScreenCoroutine(){
+        yield return Fader.Instance.FadeToBlackCoroutine();
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+    
 
     public void ChangeActiveCase(Case newCase, string exitDirection){
         StartCoroutine(ChangeActiveCaseCoroutine(newCase, exitDirection));
