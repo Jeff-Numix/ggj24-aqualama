@@ -2089,7 +2089,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCase: {fileID: 2229251679907840810}
   startSpawnPosition: {fileID: 19536441}
-  useDebugCase: 1
+  useDebugCase: 0
   debugStartCase: {fileID: 4942935509786186043}
   debugStartSpawnPosition: {fileID: 53237341}
   spaceBarFeedback: {fileID: 212177278}

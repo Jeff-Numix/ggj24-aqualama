@@ -138,6 +138,11 @@ public class Player : MonoBehaviour
         animator.SetBool("IsWalking", false);
     }
 
+    public void PlayFrappePorte(){
+        animator.SetTrigger("FrappePorte");
+        animator.SetBool("IsWalking", false);
+    }
+
     private IEnumerator DisableInputsForSomeTimeCoroutine(float delay, float feuDuration){
         yield return new WaitForSeconds(delay);
         inputActive=false;

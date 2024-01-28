@@ -108,5 +108,6 @@ public class Case01_Escalier : MonoBehaviour
     public void KnockTheDoor(){
         knockAudioPlayer.Play();
         mamieAudioPlayer.Invoke("Play", 1f);
+        Player.Instance.PlayFrappePorte();
     }
 }
