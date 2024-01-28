@@ -177,6 +177,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10138bb99608d644480dd4f4eba35a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &53237341 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2560077721277447003, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
+  m_PrefabInstance: {fileID: 3882199672854466248}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10138bb99608d644480dd4f4eba35a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &151178732
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,17 +396,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &264263860 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4164799917801834323, guid: 6e2fc10a6c0972b428710a6109218c7d, type: 3}
-  m_PrefabInstance: {fileID: 7266981540748932745}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10138bb99608d644480dd4f4eba35a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &300192150
 GameObject:
   m_ObjectHideFlags: 0
@@ -2089,9 +2089,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startCase: {fileID: 2229251679907840810}
   startSpawnPosition: {fileID: 19536441}
-  useDebugCase: 0
-  debugStartCase: {fileID: 599770184}
-  debugStartSpawnPosition: {fileID: 264263860}
+  useDebugCase: 1
+  debugStartCase: {fileID: 4942935509786186043}
+  debugStartSpawnPosition: {fileID: 53237341}
   spaceBarFeedback: {fileID: 212177278}
   endGameUI: {fileID: 1340355386}
   mainMusic: {fileID: 961231110}
@@ -2104,56 +2104,6 @@ MonoBehaviour:
   currentMoveZone: {fileID: 0}
   playerIsDead: 0
   gameIsEnded: 0
---- !u!1 &1677158092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7590711245419709546, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
-  m_PrefabInstance: {fileID: 3882199672854466248}
-  m_PrefabAsset: {fileID: 0}
---- !u!61 &1677158098
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1677158092}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 6.16, y: 3.64}
-    newSize: {x: 1.94, y: 1.82}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 6.16, y: 3.64}
-  m_EdgeRadius: 0
 --- !u!1 &1693981060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3119,10 +3069,7 @@ PrefabInstance:
     - {fileID: 2169324941948010101, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7590711245419709546, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1677158098}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aff150ce1702a5243b8a31028bf12652, type: 3}
 --- !u!212 &4354720762560815789
 SpriteRenderer:
