@@ -87,6 +87,7 @@ public class Player : MonoBehaviour
     public void PlayCrachatAnim(){
         animator.SetTrigger("Crachat");
         crachatParticles.Play();
+        GameManager.Instance.PlaySpitSound();
     }
 
     public void PlayFallAnim()
@@ -111,12 +112,16 @@ public class Player : MonoBehaviour
     public void PlayEcrabouilleAnim()
     {
         animator.SetTrigger("Ecrabouille");
+        animator.SetBool("IsWalking", false);
+        GameManager.Instance.stepsAudioSource.volume=0;
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
     }
     
     public void PlayDeadVoiture()
     {
         animator.SetTrigger("DeadVoiture");
+        animator.SetBool("IsWalking", false);
+        GameManager.Instance.stepsAudioSource.volume=0;
         StartCoroutine(DisableInputsForSomeTimeCoroutine(0,100));
     }
 

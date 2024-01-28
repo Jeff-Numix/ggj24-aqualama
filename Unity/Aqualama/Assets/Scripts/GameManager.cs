@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public AudioSource gameOverAudioSource;
     public AudioSource collectItemAudioSource;
     public AudioSource stepsAudioSource;
+    public AudioPlayer spitAudioPlayer;
     [Header("Debug")]
     public Case currentCase;
     public Collider2D currentMoveZone;
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
 
     public void PlayerDie(){
         playerIsDead=true;
-        
+        stepsAudioSource.volume=0;
        
         StartCoroutine(ShowSpaceBarFeedbackCoroutine());
     }
@@ -189,6 +190,10 @@ public class GameManager : MonoBehaviour
 
     public void PlayCollectItemSound(){
         collectItemAudioSource.Play();
+    }
+
+    public void PlaySpitSound(){
+        spitAudioPlayer.Play();
     }
 
 }
